@@ -8,22 +8,100 @@
 
 /* Begin PBXBuildFile section */
 		CD202D69208D65660006AE83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D68208D65660006AE83 /* AppDelegate.swift */; };
-		CD202D6B208D65660006AE83 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = CD202D6A208D65660006AE83 /* art.scnassets */; };
+		CD202D6B208D65660006AE83 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = CD202D6A208D65660006AE83 /* Models.scnassets */; };
 		CD202D6D208D65660006AE83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D6C208D65660006AE83 /* ViewController.swift */; };
 		CD202D70208D65660006AE83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD202D6E208D65660006AE83 /* Main.storyboard */; };
 		CD202D72208D65670006AE83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD202D71208D65670006AE83 /* Assets.xcassets */; };
 		CD202D75208D65670006AE83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD202D73208D65670006AE83 /* LaunchScreen.storyboard */; };
+		CD202D7D208D734C0006AE83 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D7C208D734C0006AE83 /* StatusViewController.swift */; };
+		CD202D7F208D77260006AE83 /* ContentSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D7E208D77260006AE83 /* ContentSelectionController.swift */; };
+		CD202D81208D77DD0006AE83 /* VirtualContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D80208D77DD0006AE83 /* VirtualContentType.swift */; };
+		CD202D83208D78280006AE83 /* VirtualContentUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D82208D78280006AE83 /* VirtualContentUpdater.swift */; };
+		CD202D85208D78720006AE83 /* VirtualFaceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D84208D78720006AE83 /* VirtualFaceContent.swift */; };
+		CD202D87208D78D70006AE83 /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D86208D78D70006AE83 /* Mask.swift */; };
+		CD202D89208D79580006AE83 /* GlassesOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D88208D79580006AE83 /* GlassesOverlay.swift */; };
+		CD202D8C208D7A2A0006AE83 /* NietscheOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D8B208D7A2A0006AE83 /* NietscheOverlay.swift */; };
+		CD202D8E208D7B150006AE83 /* ChewbaccaOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D8D208D7B150006AE83 /* ChewbaccaOverlay.swift */; };
+		CD202DAB208D7CD70006AE83 /* ShaderKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD202D8F208D7CD70006AE83 /* ShaderKitExtensions.swift */; };
+		CD202DAC208D7CE10006AE83 /* SHKCircleWaveRainbowBlended.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D91208D7CD70006AE83 /* SHKCircleWaveRainbowBlended.fsh */; };
+		CD202DAD208D7CE50006AE83 /* SHKInfrared.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D92208D7CD70006AE83 /* SHKInfrared.fsh */; };
+		CD202DAE208D7CEB0006AE83 /* SHKWater.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D93208D7CD70006AE83 /* SHKWater.fsh */; };
+		CD202DAF208D7CEB0006AE83 /* SHKStaticGrayNoise.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D94208D7CD70006AE83 /* SHKStaticGrayNoise.fsh */; };
+		CD202DB0208D7CEB0006AE83 /* SHKCircleWave.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D95208D7CD70006AE83 /* SHKCircleWave.fsh */; };
+		CD202DB1208D7CEB0006AE83 /* SHKColorInvert.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D96208D7CD70006AE83 /* SHKColorInvert.fsh */; };
+		CD202DB2208D7CEB0006AE83 /* SHKEmbossColor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D97208D7CD70006AE83 /* SHKEmbossColor.fsh */; };
+		CD202DB3208D7CEB0006AE83 /* SHKRadialGradient.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D98208D7CD70006AE83 /* SHKRadialGradient.fsh */; };
+		CD202DB4208D7CEB0006AE83 /* SHKLightGrid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D99208D7CD70006AE83 /* SHKLightGrid.fsh */; };
+		CD202DB5208D7CEB0006AE83 /* SHKLinearGradient.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D9A208D7CD70006AE83 /* SHKLinearGradient.fsh */; };
+		CD202DB6208D7CEB0006AE83 /* SHKColorAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D9B208D7CD70006AE83 /* SHKColorAlpha.fsh */; };
+		CD202DB7208D7CEB0006AE83 /* SHKCircleWaveBlended.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D9C208D7CD70006AE83 /* SHKCircleWaveBlended.fsh */; };
+		CD202DB8208D7CEB0006AE83 /* SHKEmbossGray.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D9D208D7CD70006AE83 /* SHKEmbossGray.fsh */; };
+		CD202DB9208D7CEB0006AE83 /* SHKInterlace.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D9E208D7CD70006AE83 /* SHKInterlace.fsh */; };
+		CD202DBA208D7CEB0006AE83 /* SHKPixelate.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202D9F208D7CD70006AE83 /* SHKPixelate.fsh */; };
+		CD202DBB208D7CEB0006AE83 /* SHKStaticRainbowNoise.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA0208D7CD70006AE83 /* SHKStaticRainbowNoise.fsh */; };
+		CD202DBC208D7CEB0006AE83 /* SHKColorize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA1208D7CD70006AE83 /* SHKColorize.fsh */; };
+		CD202DBD208D7CEB0006AE83 /* SHKPassthrough.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA2208D7CD70006AE83 /* SHKPassthrough.fsh */; };
+		CD202DBE208D7CEB0006AE83 /* SHKDynamicGrayNoise.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA3208D7CD70006AE83 /* SHKDynamicGrayNoise.fsh */; };
+		CD202DBF208D7CEB0006AE83 /* SHKCircleWaveRainbow.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA4208D7CD70006AE83 /* SHKCircleWaveRainbow.fsh */; };
+		CD202DC0208D7CEB0006AE83 /* SHKScreen.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA5208D7CD70006AE83 /* SHKScreen.fsh */; };
+		CD202DC1208D7CEB0006AE83 /* SHKDynamicRainbowNoise.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA6208D7CD70006AE83 /* SHKDynamicRainbowNoise.fsh */; };
+		CD202DC2208D7CEB0006AE83 /* SHKDesaturate.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA7208D7CD70006AE83 /* SHKDesaturate.fsh */; };
+		CD202DC3208D7CEB0006AE83 /* SHKColorNonAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA8208D7CD70006AE83 /* SHKColorNonAlpha.fsh */; };
+		CD202DC4208D7CEB0006AE83 /* SHKScanlines.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DA9208D7CD70006AE83 /* SHKScanlines.fsh */; };
+		CD202DC5208D7CEB0006AE83 /* SHKCheckerboard.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CD202DAA208D7CD70006AE83 /* SHKCheckerboard.fsh */; };
+		CD202DC8208E53120006AE83 /* Baahh.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CD202DC7208E53120006AE83 /* Baahh.m4a */; };
+		CD202DCA208E531B0006AE83 /* Rawww.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CD202DC9208E531B0006AE83 /* Rawww.m4a */; };
+		CD202DCC208E53230006AE83 /* Wahh.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CD202DCB208E53230006AE83 /* Wahh.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CD202D65208D65660006AE83 /* ARFaceSceneKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFaceSceneKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD202D68208D65660006AE83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD202D6A208D65660006AE83 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		CD202D6A208D65660006AE83 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		CD202D6C208D65660006AE83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CD202D6F208D65660006AE83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD202D71208D65670006AE83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD202D74208D65670006AE83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD202D76208D65670006AE83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD202D7C208D734C0006AE83 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		CD202D7E208D77260006AE83 /* ContentSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSelectionController.swift; sourceTree = "<group>"; };
+		CD202D80208D77DD0006AE83 /* VirtualContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualContentType.swift; sourceTree = "<group>"; };
+		CD202D82208D78280006AE83 /* VirtualContentUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualContentUpdater.swift; sourceTree = "<group>"; };
+		CD202D84208D78720006AE83 /* VirtualFaceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFaceContent.swift; sourceTree = "<group>"; };
+		CD202D86208D78D70006AE83 /* Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
+		CD202D88208D79580006AE83 /* GlassesOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassesOverlay.swift; sourceTree = "<group>"; };
+		CD202D8B208D7A2A0006AE83 /* NietscheOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NietscheOverlay.swift; sourceTree = "<group>"; };
+		CD202D8D208D7B150006AE83 /* ChewbaccaOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChewbaccaOverlay.swift; sourceTree = "<group>"; };
+		CD202D8F208D7CD70006AE83 /* ShaderKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderKitExtensions.swift; sourceTree = "<group>"; };
+		CD202D91208D7CD70006AE83 /* SHKCircleWaveRainbowBlended.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKCircleWaveRainbowBlended.fsh; sourceTree = "<group>"; };
+		CD202D92208D7CD70006AE83 /* SHKInfrared.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKInfrared.fsh; sourceTree = "<group>"; };
+		CD202D93208D7CD70006AE83 /* SHKWater.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKWater.fsh; sourceTree = "<group>"; };
+		CD202D94208D7CD70006AE83 /* SHKStaticGrayNoise.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKStaticGrayNoise.fsh; sourceTree = "<group>"; };
+		CD202D95208D7CD70006AE83 /* SHKCircleWave.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKCircleWave.fsh; sourceTree = "<group>"; };
+		CD202D96208D7CD70006AE83 /* SHKColorInvert.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKColorInvert.fsh; sourceTree = "<group>"; };
+		CD202D97208D7CD70006AE83 /* SHKEmbossColor.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKEmbossColor.fsh; sourceTree = "<group>"; };
+		CD202D98208D7CD70006AE83 /* SHKRadialGradient.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKRadialGradient.fsh; sourceTree = "<group>"; };
+		CD202D99208D7CD70006AE83 /* SHKLightGrid.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKLightGrid.fsh; sourceTree = "<group>"; };
+		CD202D9A208D7CD70006AE83 /* SHKLinearGradient.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKLinearGradient.fsh; sourceTree = "<group>"; };
+		CD202D9B208D7CD70006AE83 /* SHKColorAlpha.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKColorAlpha.fsh; sourceTree = "<group>"; };
+		CD202D9C208D7CD70006AE83 /* SHKCircleWaveBlended.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKCircleWaveBlended.fsh; sourceTree = "<group>"; };
+		CD202D9D208D7CD70006AE83 /* SHKEmbossGray.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKEmbossGray.fsh; sourceTree = "<group>"; };
+		CD202D9E208D7CD70006AE83 /* SHKInterlace.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKInterlace.fsh; sourceTree = "<group>"; };
+		CD202D9F208D7CD70006AE83 /* SHKPixelate.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKPixelate.fsh; sourceTree = "<group>"; };
+		CD202DA0208D7CD70006AE83 /* SHKStaticRainbowNoise.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKStaticRainbowNoise.fsh; sourceTree = "<group>"; };
+		CD202DA1208D7CD70006AE83 /* SHKColorize.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKColorize.fsh; sourceTree = "<group>"; };
+		CD202DA2208D7CD70006AE83 /* SHKPassthrough.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKPassthrough.fsh; sourceTree = "<group>"; };
+		CD202DA3208D7CD70006AE83 /* SHKDynamicGrayNoise.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKDynamicGrayNoise.fsh; sourceTree = "<group>"; };
+		CD202DA4208D7CD70006AE83 /* SHKCircleWaveRainbow.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKCircleWaveRainbow.fsh; sourceTree = "<group>"; };
+		CD202DA5208D7CD70006AE83 /* SHKScreen.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKScreen.fsh; sourceTree = "<group>"; };
+		CD202DA6208D7CD70006AE83 /* SHKDynamicRainbowNoise.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKDynamicRainbowNoise.fsh; sourceTree = "<group>"; };
+		CD202DA7208D7CD70006AE83 /* SHKDesaturate.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKDesaturate.fsh; sourceTree = "<group>"; };
+		CD202DA8208D7CD70006AE83 /* SHKColorNonAlpha.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKColorNonAlpha.fsh; sourceTree = "<group>"; };
+		CD202DA9208D7CD70006AE83 /* SHKScanlines.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKScanlines.fsh; sourceTree = "<group>"; };
+		CD202DAA208D7CD70006AE83 /* SHKCheckerboard.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = SHKCheckerboard.fsh; sourceTree = "<group>"; };
+		CD202DC7208E53120006AE83 /* Baahh.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Baahh.m4a; sourceTree = "<group>"; };
+		CD202DC9208E531B0006AE83 /* Rawww.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rawww.m4a; sourceTree = "<group>"; };
+		CD202DCB208E53230006AE83 /* Wahh.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wahh.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +135,77 @@
 			isa = PBXGroup;
 			children = (
 				CD202D68208D65660006AE83 /* AppDelegate.swift */,
-				CD202D6A208D65660006AE83 /* art.scnassets */,
+				CD202D6A208D65660006AE83 /* Models.scnassets */,
 				CD202D6C208D65660006AE83 /* ViewController.swift */,
+				CD202D82208D78280006AE83 /* VirtualContentUpdater.swift */,
+				CD202D80208D77DD0006AE83 /* VirtualContentType.swift */,
+				CD202D7C208D734C0006AE83 /* StatusViewController.swift */,
+				CD202D7E208D77260006AE83 /* ContentSelectionController.swift */,
+				CD202DC7208E53120006AE83 /* Baahh.m4a */,
+				CD202DC9208E531B0006AE83 /* Rawww.m4a */,
+				CD202DCB208E53230006AE83 /* Wahh.m4a */,
+				CD202DC6208D7CFA0006AE83 /* ShaderKit */,
+				CD202D8A208D79C40006AE83 /* VirtualContent */,
 				CD202D6E208D65660006AE83 /* Main.storyboard */,
 				CD202D71208D65670006AE83 /* Assets.xcassets */,
 				CD202D73208D65670006AE83 /* LaunchScreen.storyboard */,
 				CD202D76208D65670006AE83 /* Info.plist */,
 			);
 			path = ARFaceSceneKit;
+			sourceTree = "<group>";
+		};
+		CD202D8A208D79C40006AE83 /* VirtualContent */ = {
+			isa = PBXGroup;
+			children = (
+				CD202D84208D78720006AE83 /* VirtualFaceContent.swift */,
+				CD202D86208D78D70006AE83 /* Mask.swift */,
+				CD202D88208D79580006AE83 /* GlassesOverlay.swift */,
+				CD202D8B208D7A2A0006AE83 /* NietscheOverlay.swift */,
+				CD202D8D208D7B150006AE83 /* ChewbaccaOverlay.swift */,
+			);
+			path = VirtualContent;
+			sourceTree = "<group>";
+		};
+		CD202D90208D7CD70006AE83 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				CD202D91208D7CD70006AE83 /* SHKCircleWaveRainbowBlended.fsh */,
+				CD202D92208D7CD70006AE83 /* SHKInfrared.fsh */,
+				CD202D93208D7CD70006AE83 /* SHKWater.fsh */,
+				CD202D94208D7CD70006AE83 /* SHKStaticGrayNoise.fsh */,
+				CD202D95208D7CD70006AE83 /* SHKCircleWave.fsh */,
+				CD202D96208D7CD70006AE83 /* SHKColorInvert.fsh */,
+				CD202D97208D7CD70006AE83 /* SHKEmbossColor.fsh */,
+				CD202D98208D7CD70006AE83 /* SHKRadialGradient.fsh */,
+				CD202D99208D7CD70006AE83 /* SHKLightGrid.fsh */,
+				CD202D9A208D7CD70006AE83 /* SHKLinearGradient.fsh */,
+				CD202D9B208D7CD70006AE83 /* SHKColorAlpha.fsh */,
+				CD202D9C208D7CD70006AE83 /* SHKCircleWaveBlended.fsh */,
+				CD202D9D208D7CD70006AE83 /* SHKEmbossGray.fsh */,
+				CD202D9E208D7CD70006AE83 /* SHKInterlace.fsh */,
+				CD202D9F208D7CD70006AE83 /* SHKPixelate.fsh */,
+				CD202DA0208D7CD70006AE83 /* SHKStaticRainbowNoise.fsh */,
+				CD202DA1208D7CD70006AE83 /* SHKColorize.fsh */,
+				CD202DA2208D7CD70006AE83 /* SHKPassthrough.fsh */,
+				CD202DA3208D7CD70006AE83 /* SHKDynamicGrayNoise.fsh */,
+				CD202DA4208D7CD70006AE83 /* SHKCircleWaveRainbow.fsh */,
+				CD202DA5208D7CD70006AE83 /* SHKScreen.fsh */,
+				CD202DA6208D7CD70006AE83 /* SHKDynamicRainbowNoise.fsh */,
+				CD202DA7208D7CD70006AE83 /* SHKDesaturate.fsh */,
+				CD202DA8208D7CD70006AE83 /* SHKColorNonAlpha.fsh */,
+				CD202DA9208D7CD70006AE83 /* SHKScanlines.fsh */,
+				CD202DAA208D7CD70006AE83 /* SHKCheckerboard.fsh */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		CD202DC6208D7CFA0006AE83 /* ShaderKit */ = {
+			isa = PBXGroup;
+			children = (
+				CD202D8F208D7CD70006AE83 /* ShaderKitExtensions.swift */,
+				CD202D90208D7CD70006AE83 /* Shaders */,
+			);
+			path = ShaderKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,10 +266,39 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD202D6B208D65660006AE83 /* art.scnassets in Resources */,
+				CD202DB7208D7CEB0006AE83 /* SHKCircleWaveBlended.fsh in Resources */,
+				CD202DB6208D7CEB0006AE83 /* SHKColorAlpha.fsh in Resources */,
+				CD202DB9208D7CEB0006AE83 /* SHKInterlace.fsh in Resources */,
+				CD202DB4208D7CEB0006AE83 /* SHKLightGrid.fsh in Resources */,
+				CD202DB8208D7CEB0006AE83 /* SHKEmbossGray.fsh in Resources */,
+				CD202DBE208D7CEB0006AE83 /* SHKDynamicGrayNoise.fsh in Resources */,
+				CD202DC0208D7CEB0006AE83 /* SHKScreen.fsh in Resources */,
+				CD202DBA208D7CEB0006AE83 /* SHKPixelate.fsh in Resources */,
+				CD202DAC208D7CE10006AE83 /* SHKCircleWaveRainbowBlended.fsh in Resources */,
+				CD202DB3208D7CEB0006AE83 /* SHKRadialGradient.fsh in Resources */,
+				CD202DB0208D7CEB0006AE83 /* SHKCircleWave.fsh in Resources */,
+				CD202DAD208D7CE50006AE83 /* SHKInfrared.fsh in Resources */,
+				CD202DC1208D7CEB0006AE83 /* SHKDynamicRainbowNoise.fsh in Resources */,
+				CD202D6B208D65660006AE83 /* Models.scnassets in Resources */,
+				CD202DC2208D7CEB0006AE83 /* SHKDesaturate.fsh in Resources */,
+				CD202DBF208D7CEB0006AE83 /* SHKCircleWaveRainbow.fsh in Resources */,
+				CD202DB1208D7CEB0006AE83 /* SHKColorInvert.fsh in Resources */,
+				CD202DCA208E531B0006AE83 /* Rawww.m4a in Resources */,
+				CD202DC5208D7CEB0006AE83 /* SHKCheckerboard.fsh in Resources */,
+				CD202DC3208D7CEB0006AE83 /* SHKColorNonAlpha.fsh in Resources */,
 				CD202D75208D65670006AE83 /* LaunchScreen.storyboard in Resources */,
+				CD202DC8208E53120006AE83 /* Baahh.m4a in Resources */,
+				CD202DAF208D7CEB0006AE83 /* SHKStaticGrayNoise.fsh in Resources */,
+				CD202DB2208D7CEB0006AE83 /* SHKEmbossColor.fsh in Resources */,
+				CD202DBC208D7CEB0006AE83 /* SHKColorize.fsh in Resources */,
+				CD202DC4208D7CEB0006AE83 /* SHKScanlines.fsh in Resources */,
 				CD202D72208D65670006AE83 /* Assets.xcassets in Resources */,
 				CD202D70208D65660006AE83 /* Main.storyboard in Resources */,
+				CD202DAE208D7CEB0006AE83 /* SHKWater.fsh in Resources */,
+				CD202DBD208D7CEB0006AE83 /* SHKPassthrough.fsh in Resources */,
+				CD202DBB208D7CEB0006AE83 /* SHKStaticRainbowNoise.fsh in Resources */,
+				CD202DB5208D7CEB0006AE83 /* SHKLinearGradient.fsh in Resources */,
+				CD202DCC208E53230006AE83 /* Wahh.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +309,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD202D7F208D77260006AE83 /* ContentSelectionController.swift in Sources */,
+				CD202D87208D78D70006AE83 /* Mask.swift in Sources */,
+				CD202D89208D79580006AE83 /* GlassesOverlay.swift in Sources */,
+				CD202DAB208D7CD70006AE83 /* ShaderKitExtensions.swift in Sources */,
 				CD202D6D208D65660006AE83 /* ViewController.swift in Sources */,
+				CD202D7D208D734C0006AE83 /* StatusViewController.swift in Sources */,
+				CD202D8E208D7B150006AE83 /* ChewbaccaOverlay.swift in Sources */,
+				CD202D85208D78720006AE83 /* VirtualFaceContent.swift in Sources */,
+				CD202D81208D77DD0006AE83 /* VirtualContentType.swift in Sources */,
 				CD202D69208D65660006AE83 /* AppDelegate.swift in Sources */,
+				CD202D83208D78280006AE83 /* VirtualContentUpdater.swift in Sources */,
+				CD202D8C208D7A2A0006AE83 /* NietscheOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

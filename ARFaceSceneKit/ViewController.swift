@@ -10,34 +10,50 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+final class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    lazy var statusViewController: StatusViewController = {
+        return childViewControllers.lazy.flatMap({ $0 as? StatusViewController }).first!
+    }()
+    
+    var session: ARSession {
+        return sceneView.session
+    }
+    
+    var nodeForContentType = [VirtualContentType: VirtualFaceNode]()
+    
+    let contentUpdater = VirtualContentUpdater()
+    
+    var selectedVirtualContent: VirtualContentType = .none {
+        didSet {
+            contentUpdater.virtualFaceNode = nodeForContentType[selectedVirtualContent]
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the view's delegate
-        sceneView.delegate = self
+        sceneView.delegate = contentUpdater
+        sceneView.session.delegate = self
+        sceneView.automaticallyUpdatesLighting = true
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        createFaceGeometry()
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        contentUpdater.virtualFaceNode = nodeForContentType[selectedVirtualContent]
         
-        // Set the scene to the view
-        sceneView.scene = scene
+        statusViewController.restartExperienceHandler = { [unowned self] in
+            self.restartExperience()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-
-        // Run the view's session
-        sceneView.session.run(configuration)
+        UIApplication.shared.isIdleTimerDisabled = true
+        resetTracking()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,34 +63,112 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
+    func createFaceGeometry() {
+        let device = sceneView.device!
+        let maskGeometry = ARSCNFaceGeometry(device: device)!
+        nodeForContentType = [
+            .faceGeometry: Mask(geometry: maskGeometry),
+            .glasses: GlassesOverlay(geometry: maskGeometry),
+            .nietzsche: NietscheOverlay(geometry: maskGeometry),
+            .chewbacca: ChewbaccaOverlay()
+        ]
     }
 
-    // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
+    func resetTracking() {
+        guard ARFaceTrackingConfiguration.isSupported else { return }
+        let configuration = ARFaceTrackingConfiguration()
+        configuration.isLightEstimationEnabled = true
+        session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
-*/
+    
+    func restartExperience() {
+        // Disable Restart button for a while in order to give the session enough time to restart.
+        statusViewController.isRestartExperienceButtonEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.statusViewController.isRestartExperienceButtonEnabled = true
+        }
+        
+        resetTracking()
+    }
+    
+    func displayErrorMessage(title: String, message: String) {
+        blurView.isHidden = false
+        
+        // Present an alert informing about the error that has occurred.
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let restartAction = UIAlertAction(title: "Restart Session", style: .default) { _ in
+            alertController.dismiss(animated: true, completion: nil)
+            self.blurView.isHidden = true
+            self.resetTracking()
+        }
+        alertController.addAction(restartAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+        guard error is ARError else { return }
         
+        let errorWithInfo = error as NSError
+        let messages = [
+            errorWithInfo.localizedDescription,
+            errorWithInfo.localizedFailureReason,
+            errorWithInfo.localizedRecoverySuggestion
+        ]
+        let errorMessage = messages.compactMap({ $0 }).joined(separator: "\n")
+        
+        DispatchQueue.main.async {
+            self.displayErrorMessage(title: "The AR session failed.", message: errorMessage)
+        }
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+        blurView.isHidden = false
+        statusViewController.showMessage("""
+        SESSION INTERRUPTED
+        The session will be reset after the interruption has ended.
+        """, autoHide: false)
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
+        blurView.isHidden = true
         
+        DispatchQueue.main.async {
+            self.resetTracking()
+        }
+    }
+}
+
+extension ViewController: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        /*
+         Popover segues should not adapt to fullscreen on iPhone, so that
+         the AR session's view controller stays visible and active.
+         */
+        return .none
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*
+         All segues in this app are popovers even on iPhone. Configure their popover
+         origin accordingly.
+         */
+        guard let popoverController = segue.destination.popoverPresentationController, let button = sender as? UIButton else { return }
+        popoverController.delegate = self
+        popoverController.sourceRect = button.bounds
+        
+        // Set up the view controller embedded in the popover.
+        let contentSelectionController = popoverController.presentedViewController as! ContentSelectionController
+        
+        // Set the initially selected virtual content.
+        contentSelectionController.selectedVirtualContent = selectedVirtualContent
+        
+        // Update our view controller's selected virtual content when the selection changes.
+        contentSelectionController.selectionHandler = { [unowned self] newSelectedVirtualContent in
+            self.selectedVirtualContent = newSelectedVirtualContent
+        }
     }
 }
