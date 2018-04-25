@@ -27,7 +27,6 @@ final class GlassesOverlay: SCNNode, VirtualFaceContent {
                                 self.makeCircleWaveRainbowBlended(),
                                 self.makeLightGrid(),
                                 self.makeRadialGradient(),
-                                self.makeWater(),
                                 self.makeDynamicGrayNoise(),
                                 self.makeDynamicRainbowNoise()]
     var areBrowsUp = false
@@ -151,16 +150,6 @@ final class GlassesOverlay: SCNNode, VirtualFaceContent {
         ]
         
         return SKShader(fromFile: "SHKRadialGradient", uniforms: uniforms)
-    }
-    
-    func makeWater() -> SKShader {
-        let uniforms: [SKUniform] = [
-            SKUniform(name: "u_speed", float: 3),
-            SKUniform(name: "u_strength", float: 2.5),
-            SKUniform(name: "u_frequency", float: 10)
-        ]
-        
-        return SKShader(fromFile: "SHKWater", uniforms: uniforms)
     }
     
     func makeDynamicGrayNoise() -> SKShader {

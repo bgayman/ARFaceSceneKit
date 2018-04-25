@@ -66,10 +66,11 @@ final class ViewController: UIViewController, ARSCNViewDelegate {
     func createFaceGeometry() {
         let device = sceneView.device!
         let maskGeometry = ARSCNFaceGeometry(device: device)!
+        let glassesGeometry = ARSCNFaceGeometry(device: device)!
         nodeForContentType = [
             .faceGeometry: Mask(geometry: maskGeometry),
-            .glasses: GlassesOverlay(geometry: maskGeometry),
-            .nietzsche: NietscheOverlay(geometry: maskGeometry),
+            .glasses: GlassesOverlay(geometry: glassesGeometry),
+            .nietzsche: NietscheOverlay(),
             .chewbacca: ChewbaccaOverlay()
         ]
     }

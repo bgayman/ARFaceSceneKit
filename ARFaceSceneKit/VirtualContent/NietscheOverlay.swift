@@ -67,7 +67,7 @@ final class NietscheOverlay: SCNNode, VirtualFaceContent {
         }
     }
     
-    init(geometry: ARSCNFaceGeometry) {
+    override init() {
         
         super.init()
         let faceOverlayContent = loadedContentForAsset(named: "Nietsche")
